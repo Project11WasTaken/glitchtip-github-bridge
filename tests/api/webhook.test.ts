@@ -9,6 +9,8 @@ function mockConfig(overrides: Partial<Config> = {}): Config {
   return {
     githubToken: 'ghp_test',
     githubRepo: 'owner/repo',
+    githubRepositoryId: '',
+    githubProjectId: '',
     glitchtipApiUrl: 'http://web:8000',
     glitchtipApiToken: 'gt_token',
     webhookSecret: '',
@@ -23,7 +25,7 @@ function mockGithubClient(overrides: Partial<GithubClient> = {}): GithubClient {
     createIssue: vi.fn().mockResolvedValue({
       ok: true,
       status: 201,
-      data: { number: 1, html_url: 'https://github.com/owner/repo/issues/1' },
+      data: { number: 1, html_url: 'https://github.com/owner/repo/issues/1', node_id: 'I_kwDOtest' },
     } satisfies GitHubCreateResult),
     ...overrides,
   }
@@ -129,3 +131,4 @@ describe('webhook handler', () => {
     expect(glitchtip.fetchLatestEvent).toHaveBeenCalledWith('42')
   })
 })
+

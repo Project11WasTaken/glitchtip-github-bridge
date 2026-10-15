@@ -34,12 +34,14 @@ A webhook bridge that receives [GlitchTip](https://glitchtip.com/) alert notific
 
 | Variable | Required | Default | Description |
 |----------|----------|---------|-------------|
-| `GITHUB_TOKEN` | Yes | — | GitHub PAT with `repo` scope |
+| `GITHUB_TOKEN` | Yes | — | GitHub PAT with `repo` scope (and `project` scope if linking to projects) |
 | `GITHUB_REPO` | Yes | — | Target repo (e.g. `owner/repo`) |
 | `GLITCHTIP_API_URL` | Yes | — | GlitchTip base URL |
 | `GLITCHTIP_API_TOKEN` | Yes | — | GlitchTip API bearer token |
 | `GLITCHTIP_WEBHOOK_SECRET` | No | — | Webhook authentication secret |
 | `WEBHOOK_PORT` | No | `3001` | Server listen port |
+| `GITHUB_PROJECT_ID` | No | — | GitHub Projects (v2) ID (e.g. `PVT_kw...`) or comma-separated list of IDs to automatically link issues |
+| `GITHUB_REPOSITORY_ID` | No | — | GitHub Repository Global Node ID (e.g. `R_kg...`). Resolved automatically if not set |
 
 ## Development
 
